@@ -1,23 +1,47 @@
 {
-  "name": "confusion",
+  "name": "bootstrap4",
   "version": "1.0.0",
-  "description": "This is a website for Ristorante Con Fusion",
+  "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "npm run lite",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lite": "lite-server"
+    "start": "npm run watch:all",
+    "lite": "lite-server",
+    "scss": "node-sass -o css/ css/",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\"",
+    "clean": "rimraf dist",
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin img/* -o dist/img",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist dist--htmlmin -o dist/aboutus.html && usemin  index.html -d dist --htmlmin -o dist/index.html",
+    "build": "npm run clean && npm run copyfonts && npm run imagemin && npm run usemin"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hashiramauchiha/Bootstrap4.git"
+  },
+  "author": "ART3MIX",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hashiramauchiha/Bootstrap4/issues"
+  },
+  "homepage": "https://github.com/hashiramauchiha/Bootstrap4#readme",
   "devDependencies": {
-    "lite-server": "^2.3.0"
+    "cssmin": "^0.4.3",
+    "htmlmin": "0.0.7",
+    "lite-server": "^2.6.1",
+    "node-sass": "^4.14.1",
+    "onchange": "^7.1.0",
+    "parallelshell": "^3.0.2",
+    "rimraf": "^2.6.2",
+    "uglifyjs": "^2.4.11",
+    "usemin-cli": "^0.5.1"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.6.0",
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.0",
     "popper.js": "^1.12.9"
   }
 }

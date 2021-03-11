@@ -8,10 +8,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- endbuild -->
     <title>Ristorante Con Fusion</title>
 </head>
 
@@ -40,12 +42,13 @@
                         <span class="fa fa-sign-in"></span> Login</a>
                 </span>
             </div>
-        </div>
+        </div>  
     </nav>
 
+    
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
-            <!-- Modal content-->
+            Modal content
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login </h4>
@@ -82,6 +85,7 @@
             </div>
         </div>
     </div>
+    
     <header class="jumbotron">
         <div class="container">
             <div class="row row-header">
@@ -94,7 +98,7 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col col-sm align-self-center">
-                    <a class="btn btn-block nav-link btn-warning" data-toggle="modal" data-target="#reserveTable"
+                    <a class="btn btn-block nav-link btn-warning" id="buttonReservation"
                         role="button">Reserve Table</a>
                 </div>
             </div>
@@ -102,7 +106,7 @@
     </header>
 
     <!-- Reserve Table -->
-    <div class="modal fade" id="reserveTable" role="dialog">
+    <div class="modal fade" id="reservationFormModal" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
                 <div class="modal-header">
@@ -352,26 +356,12 @@
         </div>
     </footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <!-- build:js js/main.js -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $("#carouselButton").click(function(){
-                if ($("#carouselButton").children("span").hasClass('fa-pause')) {
-                    $("#mycarousel").carousel('pause');
-                    $("#carouselButton").children("span").removeClass('fa-pause');
-                    $("#carouselButton").children("span").addClass('fa-play');
-                }
-                else if ($("#carouselButton").children("span").hasClass('fa-play')){
-                    $("#mycarousel").carousel('cycle');
-                    $("#carouselButton").children("span").removeClass('fa-play');
-                    $("#carouselButton").children("span").addClass('fa-pause');                    
-                }
-            });
-        })
-    </script>
+    <script src="./js/script.js"></script>
+    <!-- endbuild -->
 </body>
 
 </html>
